@@ -1,9 +1,9 @@
 #Below command delete all the branch leaving master:
-git branch -r | grep 'origin' | grep -v 'master' | grep -v HEAD | cut -d/ -f2 | while read line; do git push origin :heads/$line; done;
+git branch -r | grep 'origin' | grep -v 'master' | grep -v HEAD | cut -d/ -f2- | while read line; do git push origin :heads/$line; done;
 
 
 #git branch -r : list all the remote branches
 #grep 'origin' : as there can be more than one remote so we select only origin
 #grep -v : is to filter out the branch which you want to leave. You you can add all the branches by pipleine separate which you want to skip for deletion.
-#cut -d/ -f2 : remote the origin from the name . for e.g origin/branch-name will be converted to branch-name
+#cut -d/ -f2- : remote the origin from the name . for e.g origin/branch-name will be converted to branch-name
 
